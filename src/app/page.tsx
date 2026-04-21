@@ -123,33 +123,9 @@ export default async function LandingPage() {
                 fontSize: '1.125rem', 
                 fontWeight: 600 
               }}>
-                Start Free Trial
+                Start Now
                 <ArrowRight size={20} />
               </Link>
-              <button className="btn" style={{ 
-                border: '2px solid #d1d5db', 
-                color: '#374151', 
-                padding: '1rem 2rem', 
-                borderRadius: '0.5rem', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '0.5rem', 
-                fontSize: '1.125rem', 
-                fontWeight: 600,
-                background: 'white'
-              }}>
-                <Play size={20} fill="#374151" />
-                Watch Demo
-              </button>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', paddingTop: '1rem' }}>
-              {['No credit card', '14-day trial', 'Cancel anytime'].map((text) => (
-                <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: '#4b5563' }}>
-                  <Check size={18} color="#059669" />
-                  <span>{text}</span>
-                </div>
-              ))}
             </div>
           </div>
 

@@ -10,7 +10,8 @@ import {
   IdCard,
   Briefcase
 } from "lucide-react";
-import ProfileUploadForm from "@/components/ProfileUploadForm"; // I'll create this client component
+import ProfileUploadForm from "@/components/ProfileUploadForm";
+import { updateProfileDetails } from "@/lib/profile-actions";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
@@ -72,7 +73,7 @@ export default async function ProfilePage() {
         {/* Right: Details Form */}
         <div className="card">
            <h3 style={{ marginBottom: '1.5rem' }}>Account Details</h3>
-           <form action="/api/profile/update" method="POST">
+           <form action={updateProfileDetails}>
              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
                <div>
                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem' }}>Full Name</label>

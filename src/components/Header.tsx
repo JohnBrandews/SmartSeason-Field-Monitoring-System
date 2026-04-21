@@ -27,16 +27,27 @@ export default function Header() {
           <Bell size={20} color="var(--text-muted)" />
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderLeft: '1px solid var(--border)', paddingLeft: '1.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderLeft: '1px solid var(--border)', paddingLeft: '1.5rem' }}>
           <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: '0.875rem', fontWeight: 600 }}>{session?.user?.name}</p>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{(session?.user as any)?.role}</p>
+            <p style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-main)', lineHeight: 1.2 }}>{session?.user?.name}</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.025em' }}>{(session?.user as any)?.role}</p>
           </div>
-          <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--primary-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--primary)', overflow: 'hidden' }}>
+          <div style={{ 
+            width: '42px', 
+            height: '42px', 
+            borderRadius: '50%', 
+            background: '#ecfdf5', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            border: '1.5px solid #10b981', 
+            overflow: 'hidden',
+            boxShadow: '0 0 0 4px rgba(16, 185, 129, 0.05)'
+          }}>
              {session?.user?.image ? (
                <img src={session.user.image} alt="Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
              ) : (
-               <UserIcon size={20} color="var(--primary)" style={{ margin: '0 auto' }} />
+               <UserIcon size={20} color="#10b981" />
              )}
           </div>
         </div>
