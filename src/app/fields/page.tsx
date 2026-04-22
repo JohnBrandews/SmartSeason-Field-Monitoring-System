@@ -60,7 +60,7 @@ export default async function FieldsPage({ searchParams }: { searchParams: Promi
       </div>
 
       <div className="card" style={{ padding: 0 }}>
-        <div className="table-wrap">
+        <div className="table-wrap table-fields">
         <table>
           <thead>
             <tr style={{ textAlign: 'left', background: 'var(--bg-main)', borderBottom: '1px solid var(--border)' }}>

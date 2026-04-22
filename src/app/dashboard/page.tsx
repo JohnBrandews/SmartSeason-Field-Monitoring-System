@@ -116,7 +116,7 @@ export default async function DashboardPage() {
             <Link href="/fields" style={{ fontSize: '0.875rem', color: 'var(--primary)', fontWeight: 500 }}>View All</Link>
           </div>
           
-          <div className="table-wrap">
+          <div className="table-wrap table-dashboard">
             <table>
               <thead>
                 <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>

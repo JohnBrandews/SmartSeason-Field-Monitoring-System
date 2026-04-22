@@ -226,15 +226,42 @@ button {
 }
 
 .table-wrap {
+  display: block;
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
 .table-wrap > table {
-  width: 100%;
-  min-width: 600px;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
+}
+
+.table-wrap th,
+.table-wrap td {
+  white-space: nowrap;
+}
+
+.table-dashboard > table {
+  min-width: 560px;
+}
+
+.table-fields > table {
+  min-width: 900px;
+}
+
+.table-agents > table {
+  min-width: 980px;
+}
+
+.table-analytics > table {
+  min-width: 760px;
 }
 
 /* Sidebar Styling */
@@ -434,8 +461,20 @@ button {
     display: none;
   }
 
-  .table-wrap > table {
+  .table-dashboard > table {
     min-width: 520px;
+  }
+
+  .table-fields > table {
+    min-width: 820px;
+  }
+
+  .table-agents > table {
+    min-width: 920px;
+  }
+
+  .table-analytics > table {
+    min-width: 700px;
   }
 
   .info-grid,

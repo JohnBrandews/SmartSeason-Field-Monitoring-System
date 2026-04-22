@@ -130,7 +130,7 @@ export default async function AnalyticsPage() {
             <BarChart size={20} color="var(--primary)" />
             Workload Distribution by Agent
           </h3>
-          <div className="table-wrap">
+          <div className="table-wrap table-analytics">
             <table>
               <thead>
                 <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>
