@@ -48,19 +48,20 @@ export default async function FieldsPage({ searchParams }: { searchParams: Promi
 
   return (
     <DashboardLayout>
-      <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="page-header" style={{ marginBottom: '2rem' }}>
         <div>
           <h1 style={{ fontSize: '2rem' }}>All Fields</h1>
           <p style={{ color: 'var(--text-muted)' }}>Monitor and manage agricultural progress across all locations.</p>
         </div>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div className="page-actions">
           <FieldSearch />
         </div>
       </div>
 
-      <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <div className="card" style={{ padding: 0 }}>
+        <div className="table-wrap">
+        <table>
           <thead>
             <tr style={{ textAlign: 'left', background: 'var(--bg-main)', borderBottom: '1px solid var(--border)' }}>
               <th style={{ padding: '1.25rem 1.5rem', color: 'var(--text-muted)', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase' }}>Field Info</th>
@@ -124,6 +125,7 @@ export default async function FieldsPage({ searchParams }: { searchParams: Promi
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </DashboardLayout>
   );

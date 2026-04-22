@@ -82,7 +82,7 @@ export default async function AnalyticsPage() {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '2rem' }}>
+      <div className="analytics-grid">
         {/* Status Distribution */}
         <div className="card">
           <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -114,7 +114,7 @@ export default async function AnalyticsPage() {
             <Sprout size={20} color="var(--primary)" />
             Crop Diversification
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="form-grid-2" style={{ gap: '1rem' }}>
              {Object.entries(stats.crops).map(([crop, count]) => (
                <div key={crop} style={{ padding: '1rem', background: 'var(--bg-main)', borderRadius: '12px', border: '1px solid var(--border)' }}>
                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{crop}</p>
@@ -125,40 +125,42 @@ export default async function AnalyticsPage() {
         </div>
 
         {/* Agent Workload */}
-        <div className="card" style={{ gridColumn: 'span 2' }}>
+        <div className="card" style={{ gridColumn: '1 / -1' }}>
            <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <BarChart size={20} color="var(--primary)" />
             Workload Distribution by Agent
           </h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>
-                <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Agent</th>
-                <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Assigned Agent (Primary)</th>
-                <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Extra Agent (Assistant)</th>
-                <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Capacity</th>
-              </tr>
-            </thead>
-            <tbody>
-              {agents.map(agent => (
-                <tr key={agent.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                  <td style={{ padding: '1rem 0', fontWeight: 600 }}>{agent.name}</td>
-                  <td style={{ padding: '1rem 0' }}>{agent.supervisorFields.length} fields</td>
-                  <td style={{ padding: '1rem 0' }}>{agent.assistantFields.length} fields</td>
-                  <td style={{ padding: '1rem 0' }}>
-                    <div style={{ width: '100px', height: '6px', background: 'var(--bg-main)', borderRadius: '3px' }}>
-                      <div style={{ 
-                        height: '100%', 
-                        width: `${Math.min((agent.supervisorFields.length + agent.assistantFields.length) * 10, 100)}%`,
-                        background: 'var(--primary)',
-                        borderRadius: '3px'
-                      }} />
-                    </div>
-                  </td>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>
+                  <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Agent</th>
+                  <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Assigned Agent (Primary)</th>
+                  <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Extra Agent (Assistant)</th>
+                  <th style={{ padding: '1rem 0', fontSize: '0.875rem' }}>Capacity</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {agents.map(agent => (
+                  <tr key={agent.id} style={{ borderBottom: '1px solid var(--border)' }}>
+                    <td style={{ padding: '1rem 0', fontWeight: 600 }}>{agent.name}</td>
+                    <td style={{ padding: '1rem 0' }}>{agent.supervisorFields.length} fields</td>
+                    <td style={{ padding: '1rem 0' }}>{agent.assistantFields.length} fields</td>
+                    <td style={{ padding: '1rem 0' }}>
+                      <div style={{ width: '100px', height: '6px', background: 'var(--bg-main)', borderRadius: '3px' }}>
+                        <div style={{ 
+                          height: '100%', 
+                          width: `${Math.min((agent.supervisorFields.length + agent.assistantFields.length) * 10, 100)}%`,
+                          background: 'var(--primary)',
+                          borderRadius: '3px'
+                        }} />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </DashboardLayout>

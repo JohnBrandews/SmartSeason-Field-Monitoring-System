@@ -65,7 +65,7 @@ export default function NewAgentPage() {
 
       <div className="card" style={{ maxWidth: '600px' }}>
         <form onSubmit={handleSubmit}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div className="form-grid-2" style={{ marginBottom: '1.5rem' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem' }}>Full Name</label>
               <div style={{ position: 'relative' }}>
@@ -82,7 +82,7 @@ export default function NewAgentPage() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div className="form-grid-2" style={{ marginBottom: '2rem' }}>
             <div>
               <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem' }}>ID Number</label>
               <div style={{ position: 'relative' }}>

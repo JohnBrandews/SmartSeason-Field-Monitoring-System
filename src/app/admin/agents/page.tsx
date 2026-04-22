@@ -40,7 +40,7 @@ export default async function AdminAgentsPage() {
 
   return (
     <DashboardLayout>
-      <div style={{ marginBottom: '2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="page-header" style={{ marginBottom: '2.5rem' }}>
         <div>
           <h1 style={{ fontSize: '2rem' }}>Field Agents</h1>
           <p style={{ color: 'var(--text-muted)' }}>Manage your workforce, monitor their workload, and control system access.</p>
@@ -53,7 +53,8 @@ export default async function AdminAgentsPage() {
       </div>
 
       <div className="card" style={{ padding: 0 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div className="table-wrap">
+        <table>
           <thead>
             <tr style={{ textAlign: 'left', background: 'var(--bg-main)', borderBottom: '1px solid var(--border)' }}>
               <th style={{ padding: '1.25rem 1.5rem', color: 'var(--text-muted)', fontWeight: 600, fontSize: '0.75rem', textTransform: 'uppercase' }}>Agent Profile</th>
@@ -114,6 +115,7 @@ export default async function AdminAgentsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </DashboardLayout>
   );

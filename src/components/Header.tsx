@@ -7,10 +7,16 @@ import { useSidebar } from "@/lib/sidebar-context";
 export default function Header() {
   const { data: session } = useSession();
   const { toggle } = useSidebar();
+  const role =
+    session?.user &&
+    "role" in session.user &&
+    typeof session.user.role === "string"
+      ? session.user.role
+      : "";
 
   return (
     <header className="header">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+      <div className="header-left">
         <button 
           onClick={toggle}
           className="mobile-only"
@@ -29,8 +35,8 @@ export default function Header() {
         <h2 style={{ fontSize: '1.25rem' }}>Overview</h2>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-        <div style={{ position: 'relative' }}>
+      <div className="header-right">
+        <div className="header-search">
           <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
           <input 
             type="text" 
@@ -44,10 +50,10 @@ export default function Header() {
           <Bell size={20} color="var(--text-muted)" />
         </button>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderLeft: '1px solid var(--border)', paddingLeft: '1.5rem' }}>
-          <div style={{ textAlign: 'right' }}>
+        <div className="header-user">
+          <div className="header-user-copy">
             <p style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'var(--text-main)', lineHeight: 1.2 }}>{session?.user?.name}</p>
-            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.025em' }}>{(session?.user as any)?.role}</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.025em' }}>{role}</p>
           </div>
           <div style={{ 
             width: '42px', 

@@ -51,7 +51,7 @@ export default async function DashboardPage() {
 
   return (
     <DashboardLayout>
-      <div style={{ marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className="page-header" style={{ marginBottom: '2rem' }}>
         <div>
           <h1 style={{ fontSize: '2rem' }}>Welcome, {user.name}</h1>
           <p style={{ color: 'var(--text-muted)' }}>Here's what's happening with your fields today.</p>
@@ -111,40 +111,42 @@ export default async function DashboardPage() {
       <div className="dashboard-grid">
         {/* Fields List */}
         <div className="card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+          <div className="page-header" style={{ marginBottom: '1.5rem' }}>
             <h3>Your Managed Fields</h3>
             <Link href="/fields" style={{ fontSize: '0.875rem', color: 'var(--primary)', fontWeight: 500 }}>View All</Link>
           </div>
           
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>
-                <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Field Name</th>
-                <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Crop</th>
-                <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Stage</th>
-                <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {fields.slice(0, 5).map((field) => {
-                const status = calculateFieldStatus(field as any);
-                return (
-                  <tr key={field.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                    <td style={{ padding: '1rem 0' }}>
-                      <Link href={`/fields/${field.id}`} style={{ fontWeight: 600 }}>{field.name}</Link>
-                    </td>
-                    <td style={{ padding: '1rem 0' }}>{field.cropType}</td>
-                    <td style={{ padding: '1rem 0' }}>{field.stage}</td>
-                    <td style={{ padding: '1rem 0' }}>
-                      <span className={`badge badge-${status.toLowerCase().replace(' ', '-')}`}>
-                        {status}
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--border)' }}>
+                  <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Field Name</th>
+                  <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Crop</th>
+                  <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Stage</th>
+                  <th style={{ padding: '1rem 0', color: 'var(--text-muted)', fontWeight: 500, fontSize: '0.875rem' }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {fields.slice(0, 5).map((field) => {
+                  const status = calculateFieldStatus(field as any);
+                  return (
+                    <tr key={field.id} style={{ borderBottom: '1px solid var(--border)' }}>
+                      <td style={{ padding: '1rem 0' }}>
+                        <Link href={`/fields/${field.id}`} style={{ fontWeight: 600 }}>{field.name}</Link>
+                      </td>
+                      <td style={{ padding: '1rem 0' }}>{field.cropType}</td>
+                      <td style={{ padding: '1rem 0' }}>{field.stage}</td>
+                      <td style={{ padding: '1rem 0' }}>
+                        <span className={`badge badge-${status.toLowerCase().replace(' ', '-')}`}>
+                          {status}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Recent Updates */}

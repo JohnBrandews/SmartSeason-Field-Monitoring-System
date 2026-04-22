@@ -82,7 +82,7 @@ export default function NewFieldPage() {
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
+            <div className="form-grid-2" style={{ marginBottom: '2rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem' }}>Crop Type</label>
                 <div style={{ position: 'relative' }}>

@@ -28,7 +28,7 @@ export default async function ProfilePage() {
         <p style={{ color: 'var(--text-muted)' }}>Manage your personal information and profile picture.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '3rem' }}>
+      <div className="profile-grid">
         {/* Left: Avatar & ID */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           <div className="card text-center" style={{ padding: '2.5rem' }}>
@@ -74,7 +74,7 @@ export default async function ProfilePage() {
         <div className="card">
            <h3 style={{ marginBottom: '1.5rem' }}>Account Details</h3>
            <form action={updateProfileDetails}>
-             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+             <div className="form-grid-2" style={{ marginBottom: '1.5rem' }}>
                <div>
                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, marginBottom: '0.5rem' }}>Full Name</label>
                  <input 

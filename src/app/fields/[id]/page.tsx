@@ -60,16 +60,16 @@ export default async function FieldDetailPage({ params }: { params: { id: string
           <ArrowLeft size={16} />
           Back to Fields
         </Link>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div className="page-header">
           <div>
             <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{field.name}</h1>
-            <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
+            <div className="page-actions" style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><MapPin size={16} /> Central Region, Zone A</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Calendar size={16} /> Planted: {new Date(field.plantingDate).toLocaleDateString()}</span>
             </div>
           </div>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div className="page-actions">
             {user.role === "ADMIN" && (
               <form action={async () => {
                 "use server";
@@ -98,7 +98,7 @@ export default async function FieldDetailPage({ params }: { params: { id: string
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+      <div className="split-layout">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {/* Assignment Section (Admin Only) */}
           {user.role === "ADMIN" && (
@@ -116,7 +116,7 @@ export default async function FieldDetailPage({ params }: { params: { id: string
               <Timer size={22} color="var(--primary)" />
               Monitoring Oversight
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2rem' }}>
+            <div className="info-grid">
               <div>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Crop / Stage</p>
                 <p style={{ fontWeight: 600, fontSize: '1rem' }}>{field.cropType} - {field.stage}</p>
