@@ -41,37 +41,37 @@ async function main() {
     {
       name: "North Valley Field",
       cropType: "Maize",
-      plantingDate: new Date(Date.now() - 100 * 24 * 60 * 60 * 1000), // 100 days ago (Growing + >90 days = AT RISK)
+      plantingDate: new Date(Date.now() - 100 * 24 * 60 * 60 * 1000), 
       stage: "GROWING",
-      assignedAgentId: agent.id,
+      supervisorId: agent.id,
     },
     {
       name: "East Slope",
       cropType: "Wheat",
-      plantingDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), // 30 days ago (Active)
+      plantingDate: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000), 
       stage: "GROWING",
-      assignedAgentId: agent.id,
+      supervisorId: agent.id,
     },
     {
       name: "River Side",
       cropType: "Soybeans",
-      plantingDate: new Date(Date.now() - 130 * 24 * 60 * 60 * 1000), // 130 days ago (Ready + >120 days = AT RISK)
+      plantingDate: new Date(Date.now() - 130 * 24 * 60 * 60 * 1000), 
       stage: "READY",
-      assignedAgentId: agent.id,
+      supervisorId: agent.id,
     },
     {
       name: "South Plateau",
       cropType: "Barley",
-      plantingDate: new Date(Date.now() - 140 * 24 * 60 * 60 * 1000), // 140 days ago (Completed)
+      plantingDate: new Date(Date.now() - 140 * 24 * 60 * 60 * 1000), 
       stage: "HARVESTED",
-      assignedAgentId: agent.id,
+      supervisorId: agent.id,
     },
     {
       name: "New Plot",
       cropType: "Corn",
-      plantingDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 days ago (Active)
+      plantingDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), 
       stage: "PLANTED",
-      assignedAgentId: agent.id,
+      supervisorId: agent.id,
     }
   ];
 
