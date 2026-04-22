@@ -96,8 +96,8 @@ These demo accounts are created by the seed script:
   Password: `AdminSmart123!`
 
 - Agent
-  Email: `agent@gmail.com`
-  Password: `AgentSmart123!`
+  Email: `berrinbendy@gmail.com`
+  Password: `123456789`
 
 ## Design Decisions
 
