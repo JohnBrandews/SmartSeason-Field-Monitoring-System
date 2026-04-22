@@ -1,14 +1,31 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { Bell, Search, User as UserIcon } from "lucide-react";
+import { Bell, Search, User as UserIcon, Menu } from "lucide-react";
+import { useSidebar } from "@/lib/sidebar-context";
 
 export default function Header() {
   const { data: session } = useSession();
+  const { toggle } = useSidebar();
 
   return (
     <header className="header">
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <button 
+          onClick={toggle}
+          className="mobile-only"
+          style={{ 
+            background: 'var(--primary-soft)', 
+            color: 'var(--primary)', 
+            padding: '8px', 
+            borderRadius: '8px',
+            display: 'none', // Controlled by CSS
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <Menu size={24} />
+        </button>
         <h2 style={{ fontSize: '1.25rem' }}>Overview</h2>
       </div>
 

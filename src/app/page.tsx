@@ -77,7 +77,7 @@ export default async function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section style={{ 
+      <section className="hero-section" style={{ 
         paddingTop: '8rem', 
         paddingBottom: '5rem', 
         paddingLeft: '1.5rem', 
@@ -151,7 +151,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Stats Bar */}
-      <section style={{ padding: '4rem 1.5rem', background: '#f9fafb' }}>
+      <section className="stats-bar" style={{ padding: '4rem 1.5rem', background: '#f9fafb' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', textAlign: 'center' }}>
           {[
             { label: 'Active Fields', value: '15k+' },
